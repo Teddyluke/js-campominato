@@ -14,18 +14,37 @@ var i = 0;
 var punteggio = 0;
 var numeroUtente
 var controller = true;
-while (i < 84 && punteggio < 84 && controller != false) {
+var numeriUtenteInseriti = []
+while (i < 20 && punteggio < 84 && controller != false) {
   numeroUtente = parseInt(prompt("inserisci un numero"));
-  if (numeroUtente == numeriBomba[i]) {
+  if (numberController(numeroUtente, numeriBomba) == true) {
     controller = false;
-    console.log(numeroUtente);
+  } else if (numberController(numeroUtente, numeriUtenteInseriti) == true) {
+   alert("il valore inserito non è valido perchè già presente")
+   i--
   } else {
     punteggio++
+    numeriUtenteInseriti.push(numeroUtente)
   }
   i++
 }
-console.log(punteggio);
-
-// il codice confronta il numero inserito dall'utente con i numeri generati dal pc, se uno di questi combacia il gioco si ferma.
 
 // il computer riporta il punteggio totale del giocatore
+console.log(numeriUtenteInseriti);
+
+console.log("il tuo punteggio è di: " + punteggio + " punti.");
+
+
+
+
+
+//  funzione per controllare se un numero è già presente in un arrey.
+
+function numberController(num1, arrey) {
+  for (var i = 0; i < arrey.length; i++) {
+    if (arrey[i] == num1) {
+      return true ;
+    }
+  }
+  return false;
+}
