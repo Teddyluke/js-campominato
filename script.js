@@ -1,9 +1,15 @@
 // faccio generare al computer 16 numeri casuali da 1 a 100, assicurandomi che non siano uguali tra loro
 
 var numeriBomba = [];
-
+var appogginoPerNumeriBomba
 for (var i = 0; i < 16; i++) {
-  numeriBomba.push([Math.floor(Math.random() * 100)])
+  appogginoPerNumeriBomba = Math.floor(Math.random() * 100)
+  if (numberController(appogginoPerNumeriBomba, numeriBomba) == true) {
+    i--
+  } else {
+    numeriBomba.push(appogginoPerNumeriBomba)
+
+  }
 }
 
 console.log(numeriBomba);
@@ -15,7 +21,7 @@ var punteggio = 0;
 var numeroUtente
 var controller = true;
 var numeriUtenteInseriti = []
-while (i < 20 && punteggio < 84 && controller != false) {
+while (i < 84 && punteggio < 84 && controller != false) {
   numeroUtente = parseInt(prompt("inserisci un numero"));
   if (numberController(numeroUtente, numeriBomba) == true) {
     controller = false;
