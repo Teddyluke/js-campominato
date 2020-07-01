@@ -25,12 +25,12 @@ while (i < maxSafeNumber && punteggio < maxSafeNumber && controller != false) {
     controller = false;
   } else if (numberController(numeroUtente, numeriUtenteInseriti) == true) {
    alert("il valore inserito non è valido");
-   i--
   } else {
     punteggio++
     numeriUtenteInseriti.push(numeroUtente)
+    i++
   }
-  i++
+
 }
 
 // il computer riporta il punteggio totale del giocatore
